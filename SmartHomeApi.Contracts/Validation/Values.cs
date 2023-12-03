@@ -5,6 +5,7 @@
         public static string[] ValidRooms = new[]
         {
             "Кухня",
+            "Спальня",
             "Ванная",
             "Гостиная",
             "Туалет"

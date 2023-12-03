@@ -1,11 +1,13 @@
 ﻿using FluentValidation;
 using SmartHomeApi.Contracts.Models.Devices;
+using SmartHomeApi.Data.Repos;
 using System.Linq;
 
 namespace SmartHomeApi.Contracts.Validation
 {
     public class AddDeviceRequestValidation : AbstractValidator<AddDeviceRequest>
     {
+        private readonly RoomRepository _rooms;
         public AddDeviceRequestValidation()
         {
             RuleFor(x => x.Name).NotEmpty();

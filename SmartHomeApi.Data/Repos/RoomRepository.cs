@@ -20,10 +20,8 @@ namespace SmartHomeApi.Data.Repos
         /// </summary>
         public async Task AddRoom(Room room)
         {
-            var entry = _context.Entry(room);
-
-            if (entry.State == EntityState.Detached)
-                await _context.Rooms.AddAsync(room);
+            if (_context.Rooms.Contains(room))
+                _context.Rooms.Remove(room);
 
             await _context.SaveChangesAsync();
         }
@@ -33,13 +31,10 @@ namespace SmartHomeApi.Data.Repos
         /// </summary>
         public async Task DeleteRoom(Room room)
         {
-            var entry = _context.Entry(room);
-
-            if (entry.State == EntityState.Detached)
-            {
+            if (_context.Rooms.Contains(room))
                 _context.Rooms.Remove(room);
-                await _context.SaveChangesAsync();
-            }
+
+            await _context.SaveChangesAsync();    
         }
 
         /// <summary>

@@ -22,13 +22,11 @@ namespace SmartHomeApi.Data.Repos
         /// </summary>
         public async Task DeleteDevice(Device device)
         {
-            var entry = _context.Entry(device);
-
-            if (entry.State == EntityState.Detached)
-            {
+            if (_context.Devices.Contains(device))
                 _context.Devices.Remove(device);
-                await _context.SaveChangesAsync();
-            }
+                
+            await _context.SaveChangesAsync();
+            
         }
 
         /// <summary>
@@ -77,6 +75,9 @@ namespace SmartHomeApi.Data.Repos
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Изменить объект Device
+        /// </summary>
         public async Task UpdateDevice(Device device, Room room, UpdateDeviceQuery query)
         {
             device.RoomId = room.Id;

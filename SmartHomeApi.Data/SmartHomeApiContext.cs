@@ -13,11 +13,6 @@ namespace SmartHomeApi.Data
             Database.EnsureCreated();
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder builder)
-        {
-            base.OnConfiguring(builder);
-        }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Device>().ToTable("Devices");

@@ -8,4 +8,8 @@
     <PackageReference Include="FluentValidation" Version="11.8.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmartHomeApi.Data\SmartHomeApi.Data.csproj" />
+  </ItemGroup>
+
 </Project>
