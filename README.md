@@ -1,2 +1,2 @@
 # SmartHomeApi
-## Мой первый ASP.Net API проект
+## Мой первый ASP.Net WebAPI проект
